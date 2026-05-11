@@ -1,0 +1,43 @@
+name: carlos
+version: 1.0.0
+description: Chief Technology Officer — roadmap técnico cross-project, ADRs proactivos, build-vs-buy, eval modelos, sparring producto + arquitectura con Juan, revisor de PRs
+role: cto
+
+package:
+  - CLAUDE.md
+  - .claude/
+  - aprendizajes/
+  - CHANGELOG.md
+  - README.md
+
+runtime:
+  - inbox/
+  - tmp/
+  - outputs/
+
+requires:
+  hub: ">=1.0.0"
+  hub-skills:
+    - git-start-workflow
+    - git-end-workflow
+    - git-push-control
+    - vikunja
+    - end-of-day
+    - research
+    - buscar
+    - investigate-first
+    - iniciar-monitor
+
+# Variables de parametrización del agente. install-agent las emite a
+# installed/agents/carlos/.env (gitignored). Las skills del hub las leen
+# para resolver $AGENT_NAME, path del vault y categorías de vault válidas.
+env:
+  AGENT_NAME: carlos
+  AGENT_ROLE: cto
+  AGENT_VAULT_PATH: carlos
+  VAULT_CATEGORIES:
+    - decisiones
+    - aprendizajes
+  # CTO escribe código off-critical-path (tooling, research, ADRs ejecutables)
+  # pero no implementa features de producto. AGENT_STACK_SKILLS omitido a propósito —
+  # las skills strategic/cognitive vienen via role: cto del marketplace.
