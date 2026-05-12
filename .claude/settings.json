@@ -1,9 +1,5 @@
 {
   "defaultMode": "auto",
-  "env": {
-    "MNEME_URL": "http://127.0.0.1:7878/mcp/",
-    "MNEME_VAULT_NAME": "agent-hub-vault"
-  },
   "permissions": {
     "allow": [
       "Bash",
@@ -51,8 +47,6 @@
       "Bash(agent-hub*)",
       "Bash(hub-send*)",
       "Bash(hub-recv*)",
-      "mcp__plugin_mneme_mneme",
-      "mcp__plugin_mneme_mneme__*",
       "mcp__mneme",
       "mcp__mneme__*",
       "mcp__pencil",
@@ -87,17 +81,7 @@
       }
     ]
   },
-  "extraKnownMarketplaces": {
-    "mneme-local": {
-      "source": {
-        "source": "github",
-        "repo": "juanfaustoperalta/mneme"
-      },
-      "autoUpdate": false
-    }
-  },
   "enabledPlugins": {
-    "mneme@mneme-local": true,
     "obsidian@obsidian-skills": false,
     "linear@claude-plugins-official": false
   }
