@@ -83,6 +83,7 @@
   },
   "enabledPlugins": {
     "obsidian@obsidian-skills": false,
-    "linear@claude-plugins-official": false
+    "linear@claude-plugins-official": false,
+    "mneme@mneme-local": true
   }
 }
