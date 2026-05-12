@@ -1,7 +1,12 @@
 name: carlos
-version: 1.0.5
+version: 1.0.6
 description: Chief Technology Officer — roadmap técnico cross-project, ADRs proactivos, build-vs-buy, eval modelos, sparring producto + arquitectura con Juan, revisor de PRs
 role: cto
+
+# Carlos vive en sesión interactiva con Juan (Warp/Cursor), NO en tmux.
+# El dispatcher salta `ensureSession` para agentes con este flag para evitar
+# spawn de tmux fantasma que competiría con la sesión del humano.
+is_interactive: true
 
 package:
   - CLAUDE.md
