@@ -4,6 +4,19 @@ All notable changes to `cto-agent` will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] — 2026-05-12
+
+### Changed
+
+- **CLAUDE.md** — quitar regla heredada de EM "NO opero el hub". Reemplazo: "SÍ opero el hub" (instalación, configuración, fixes ops, deploys, debugging del runtime). Marina sigue como dispatcher operativo default por convención (mantiene flujo limpio + race conditions), pero CTO no depende de ella para acciones críticas. Distinción CTO vs EM: el EM era estratégico-tactical; el CTO también ejecuta cuando hace falta.
+- **CLAUDE.md** — refinamiento de "Restricciones": NO escribir código de **producto critical-path** (eso es Claudio/Laura), pero SÍ escribir fixes operativos del hub (bin/, install scripts, configs) además del tooling off-critical-path original. Merge a main sigue requiriendo aprobación de Juan, pero CTO puede ejecutar el merge una vez autorizado (en vez de "NO mergeo" absoluto).
+
+### Notes
+
+- Bump **patch**: refinamiento de reglas, sin cambios estructurales del template.
+- Tag base: `cto-v1.0.0`.
+- Origen: corrección de Juan 2026-05-12 — el CTO de la oficina opera todo cuando hace falta, regla "NO opero el hub" venía del rol EM y no aplica al CTO.
+
 ## [1.0.0] — 2026-05-11
 
 ### Added
