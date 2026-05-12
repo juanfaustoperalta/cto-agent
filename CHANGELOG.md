@@ -4,6 +4,26 @@ All notable changes to `cto-agent` will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] — 2026-05-12 — Plugins enabled: mneme on, obsidian/linear off
+
+### Added
+
+- `.claude/settings.json` versionado en el repo (sale del `.gitignore`). Inyecta `enabledPlugins` + `extraKnownMarketplaces` para que Claude Code, al abrir cwd Carlos, cargue las skills del plugin Mneme (`/mneme:checkpoint`, `/mneme:reminder`, `/mneme:find`, etc.).
+- `extraKnownMarketplaces.mneme-local`: source `github: juanfaustoperalta/mneme`, autoUpdate false.
+- `enabledPlugins.mneme@mneme-local`: true.
+
+### Changed
+
+- `enabledPlugins.obsidian@obsidian-skills`: false (override del user-global).
+- `enabledPlugins.linear@claude-plugins-official`: false (override del user-global). Mneme reemplaza el rol de cerebro de Carlos; Linear quedó deprecated post-ADR-009 (Vikunja).
+- `.gitignore`: eliminada la línea `.claude/settings.json` — ahora se commitea (consistente con pm-agent, marina, etc.). El template hub-wide `agent-claude-stop-hook-settings.json` referenciado en `bin/install-agent` nunca se implementó; este patrón viene de los agentes que ya funcionan.
+
+### Notes
+
+- Bump **patch** — config-only, sin cambios de comportamiento del rol.
+- Permissions extra agregadas: `mcp__plugin_mneme_mneme*` (namespace plugin) además de `mcp__mneme*` (namespace .mcp.json directo) — coexisten hasta consolidar.
+- Para que el cambio impacte Carlos sin esperar `bin/upgrade-agent`: `cp .claude/settings.json ~/.agent-hub/agents/carlos/.claude/settings.json` con `{{HUB_HOME}}` resuelto. Bridge ya aplicado en sesión actual.
+
 ## [1.0.2] — 2026-05-12 — Flow operacional: Carlos mergea directo (HUD-575)
 
 ### Changed

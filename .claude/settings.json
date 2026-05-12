@@ -1,0 +1,100 @@
+{
+  "defaultMode": "auto",
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Skill",
+      "WebFetch",
+      "WebSearch",
+      "Agent",
+      "Agent(Explore)",
+      "Agent(Plan)",
+      "Agent(general-purpose)",
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(git checkout*)",
+      "Bash(git pull*)",
+      "Bash(git fetch*)",
+      "Bash(git branch*)",
+      "Bash(git tag*)",
+      "Bash(git rebase*)",
+      "Bash(git merge*)",
+      "Bash(git push origin feat/*)",
+      "Bash(git push origin fix/*)",
+      "Bash(git push origin chore/*)",
+      "Bash(git push origin hotfix/*)",
+      "Bash(gh repo clone*)",
+      "Bash(gh pr create*)",
+      "Bash(gh pr view*)",
+      "Bash(gh pr diff*)",
+      "Bash(gh pr checks*)",
+      "Bash(gh pr comment*)",
+      "Bash(gh pr list*)",
+      "Bash(gh pr merge --squash*)",
+      "Bash(gh pr merge --rebase*)",
+      "Bash(gh issue create*)",
+      "Bash(gh issue view*)",
+      "Bash(gh issue comment*)",
+      "Bash(gh api*)",
+      "Bash(agent-hub*)",
+      "Bash(hub-send*)",
+      "Bash(hub-recv*)",
+      "mcp__plugin_mneme_mneme",
+      "mcp__plugin_mneme_mneme__*",
+      "mcp__mneme",
+      "mcp__mneme__*",
+      "mcp__pencil",
+      "mcp__pencil__*",
+      "mcp__claude_ai_Gmail",
+      "mcp__claude_ai_Gmail__*",
+      "mcp__claude_ai_Google_Calendar",
+      "mcp__claude_ai_Google_Calendar__*",
+      "mcp__claude_ai_Google_Drive",
+      "mcp__claude_ai_Google_Drive__*"
+    ],
+    "deny": [
+      "Bash(git push origin main*)",
+      "Bash(git push * main*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git push --tags --force*)",
+      "Bash(rm -rf*)",
+      "Bash(gh repo delete*)",
+      "Bash(git filter-branch*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"{{HUB_HOME}}/bin/log-claude-usage.mjs\""
+          }
+        ]
+      }
+    ]
+  },
+  "extraKnownMarketplaces": {
+    "mneme-local": {
+      "source": {
+        "source": "github",
+        "repo": "juanfaustoperalta/mneme"
+      },
+      "autoUpdate": false
+    }
+  },
+  "enabledPlugins": {
+    "mneme@mneme-local": true,
+    "obsidian@obsidian-skills": false,
+    "linear@claude-plugins-official": false
+  }
+}
