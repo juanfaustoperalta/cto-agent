@@ -4,6 +4,25 @@ All notable changes to `cto-agent` will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] — 2026-05-12 — Drop Mneme plugin in favor of project-level `.mcp.json`
+
+### Removed
+
+- `enabledPlugins.mneme@mneme-local` y `extraKnownMarketplaces.mneme-local`. El plugin Mneme deja de ser el canal de conexión interno.
+- `env.MNEME_URL` y `env.MNEME_VAULT_NAME`. El plugin ya no se carga, las env vars no aplican.
+- `permissions.allow`: `mcp__plugin_mneme_mneme` y `mcp__plugin_mneme_mneme__*` (obsoletas sin el plugin).
+
+### Rationale
+
+Tras la migración a HTTP de plugin v0.1.1, validar la conexión del plugin requería 3 env vars (`MNEME_URL`, `MNEME_VAULT_NAME`, `MNEME_AUTH_TOKEN`) propagadas correctamente desde el shell al proceso Claude Code — algo que Warp no garantiza sin override per-cwd. El `.mcp.json` runtime de cada hub-agent (generado por `bin/install-agent`) ya declara un server `mneme` HTTP directo apuntando a `127.0.0.1:7878` con vault `agent-hub-vault` y token inline — funciona sin tocar env vars del shell. Eliminar el plugin elimina la duplicidad (Claude Code de-duplicaba en runtime, dejando uno disabled) y la fragilidad del flow de env vars.
+
+El plugin v0.1.1 publicado queda válido para usuarios externos que prefieren marketplace-managed install; uso interno del agent-hub va por `.mcp.json` directo (decisión documentada en repo Mneme README).
+
+### Notes
+
+- Permissions `mcp__mneme` y `mcp__mneme__*` se mantienen — autorizan tools del server `mneme` del `.mcp.json` directo.
+- Aplicar via `upgrade-hub` para que el runtime `~/.agent-hub/agents/carlos/` tome el cambio.
+
 ## [1.0.4] — 2026-05-12 — Mneme plugin env vars (per-cwd, no shell-global)
 
 ### Added
