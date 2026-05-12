@@ -1,5 +1,9 @@
 {
   "defaultMode": "auto",
+  "env": {
+    "MNEME_URL": "http://127.0.0.1:7878/mcp/",
+    "MNEME_VAULT_NAME": "agent-hub-vault"
+  },
   "permissions": {
     "allow": [
       "Bash",
