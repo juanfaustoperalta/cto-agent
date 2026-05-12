@@ -4,6 +4,18 @@ All notable changes to `cto-agent` will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] — 2026-05-12 — Mneme plugin env vars (per-cwd, no shell-global)
+
+### Added
+
+- `.claude/settings.json`: campo `env` con `MNEME_URL` y `MNEME_VAULT_NAME`. Se exportan solo cuando Claude Code abre el cwd Carlos — no contaminan el shell global del usuario (importante: Mat usa `MNEME_VAULT_NAME=mat-vault` para su propio cerebro Mneme; ponerlo en `~/.zshrc` rompería su sesión).
+
+### Notes
+
+- `MNEME_AUTH_TOKEN` sigue viniendo de `~/.zshrc` (es secreto, no commiteable).
+- Requiere plugin Mneme `plugin-v0.1.1+` (PR mneme#3 mergeado) que reemplazó URL hardcoded por `${MNEME_URL}` / `${MNEME_VAULT_NAME}` en su `.mcp.json`.
+- Pendiente validar end-to-end que Claude Code expande el campo `env` de settings.json a los placeholders del `.mcp.json` de plugins. Si no lo hace, fallback a hook `SessionStart` con `export ...`.
+
 ## [1.0.3] — 2026-05-12 — Plugins enabled: mneme on, obsidian/linear off
 
 ### Added
