@@ -4,6 +4,18 @@ All notable changes to `cto-agent` will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.6] — 2026-05-13 — Mneme migration sweep F6 (CLAUDE.md)
+
+### Changed
+
+- CLAUDE.md: agregado `/mneme:cerebro` y `/mneme:find` a la sección "Skills que uso".
+- CLAUDE.md: normalizado `mneme:resume` → `/mneme:resume` (slash inicial consistente con otras invocaciones).
+- CLAUDE.md: trigger phrase de retomá actualizada de "leí último handoff" a "leí último checkpoint" (post deprecation de skill `handoff`).
+
+### Rationale
+
+F6 mneme migration sweep — los CLAUDE.md de los agentes referenciaban triggers legacy del modelo handoff y no listaban completas las skills mneme (cerebro/find faltaban en "Skills que uso"). Sweep paralelo por Marina (otros 4 agentes) e Ines (Carlos/Diana/Frontend/Lucas).
+
 ## [1.0.5] - 2026-05-12
 
 ### Added

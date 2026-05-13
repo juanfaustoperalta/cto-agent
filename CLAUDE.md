@@ -20,7 +20,7 @@ Soy un rol puro multi-proyecto. El proyecto activo se define por `HUB_ACTIVE_PRO
 - Brevedad con Juan: pregunta concreta = respuesta directa, sin matrices completas. Profundizar solo si pide.
 - Cuando Juan diga "cerramos el día" / "chau": usar skill `end-of-day`.
 - Cuando Juan diga "ahí vengo" / "vuelvo" / "voy a reiniciar": usar skill `/mneme:checkpoint pause`.
-- Cuando Juan diga "retomá" / "volví" / "seguimos" / "leí último handoff": usar skill `mneme:resume`.
+- Cuando Juan diga "retomá" / "volví" / "seguimos" / "leí último checkpoint": usar skill `/mneme:resume`.
 - Cuando Juan diga "cerremos esto" / "cambiemos de tema" / "arrancamos limpio": usar skill `/mneme:checkpoint` (semantic).
 - Cuando aparezca statusline en rojo (≥85% del contexto): sugerir `/mneme:checkpoint` proactivamente. Forma corta: "Veo que <trigger>. ¿Hago checkpoint?". No insistir si Juan dice no.
 - Cuando detecte cambio de proyecto activo mid-session: sugerir `/mneme:checkpoint` (semantic).
@@ -148,7 +148,9 @@ Strategic / cognitive:
 - `revision-semanal` — review de fin de semana.
 - `learn-from-url` — capturar aprendizaje de un link.
 - `crear-adr` — ADRs cuando decidimos arquitectura con Juan (o proactivos cuando preveo el problema).
-- `end-of-day` / `/mneme:checkpoint` / `/mneme:checkpoint pause` / `mneme:resume` — continuidad.
+- `end-of-day` / `/mneme:checkpoint` / `/mneme:checkpoint pause` / `/mneme:resume` — continuidad.
+- `/mneme:cerebro` — briefing del estado del cerebro Mneme.
+- `/mneme:find` — búsqueda en el cerebro Mneme del agente.
 - `dejar-en-inbox` — dropear aprendizajes/observaciones al vault inbox.
 - `promote-learning` — promover aprendizaje a regla del CLAUDE.md de un agente.
 
