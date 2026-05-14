@@ -9,3 +9,4 @@ docs/plans/
 
 # macOS cruft
 .DS_Store
+.claude/settings.json
